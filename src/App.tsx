@@ -10,6 +10,7 @@ import type { AuthUser } from './services/auth';
 import { clearRecoveryParamsInUrl, getCurrentUser, isRecoverySessionInUrl, logout, subscribeToAuthState } from './services/auth';
 import { fetchUsageSummary, recordUsage, setPlan, type BillingPlanCode, type BillingUsageSummary } from './services/billing';
 import { confirmStripeCheckoutSession, redirectToStripeCheckout } from './services/stripe';
+import { applySeo } from './services/seo';
 import type { ScanResult, Vulnerability } from './types';
 
 type ViewState = 'home' | 'scanning' | 'results' | 'settings';
@@ -61,6 +62,42 @@ const toUiErrorMessage = (error: unknown, fallback: string) => {
   return message;
 };
 
+const buildPublicStructuredData = () => {
+  const siteUrl = window.location.origin;
+
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Vibesec',
+      url: siteUrl,
+      logo: `${siteUrl}/vibesec-logo.svg`
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Vibesec',
+      url: siteUrl,
+      description: 'AI security scanner for vibe-coded web applications.'
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'Vibesec',
+      applicationCategory: 'SecurityApplication',
+      operatingSystem: 'Web',
+      url: siteUrl,
+      description:
+        'AI vulnerability scanner that tests web apps for OWASP Top 10 weaknesses and provides practical remediation guidance.',
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'USD',
+        price: '0'
+      }
+    }
+  ];
+};
+
 const App = () => {
   const [authUser, setAuthUser] = useState<AuthUser | null>(null);
   const [isAuthLoading, setIsAuthLoading] = useState(true);
@@ -77,6 +114,60 @@ const App = () => {
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
   const accountMenuRef = useRef<HTMLDivElement | null>(null);
   const checkoutHandledRef = useRef(false);
+
+  useEffect(() => {
+    if (isRecoveryMode) {
+      applySeo({
+        title: 'Reset Password | Vibesec',
+        description: 'Securely reset your Vibesec account password to continue scanning applications.',
+        robots: 'noindex,nofollow,noarchive'
+      });
+      return;
+    }
+
+    if (!authUser) {
+      applySeo({
+        title: 'AI Security Scanner for Vibe-Coded Apps | Vibesec',
+        description:
+          'Detect OWASP Top 10 vulnerabilities in modern web apps and generate AI-assisted remediation guidance with Vibesec.',
+        structuredData: buildPublicStructuredData()
+      });
+      return;
+    }
+
+    if (view === 'home') {
+      applySeo({
+        title: 'Security Scan Dashboard | Vibesec',
+        description: 'Run AI-driven security scans for your codebase and review prioritized findings.',
+        robots: 'noindex,nofollow,noarchive'
+      });
+      return;
+    }
+
+    if (view === 'scanning') {
+      applySeo({
+        title: 'Running Security Scan | Vibesec',
+        description: 'Vibesec is actively analyzing your target for security weaknesses and exploit paths.',
+        robots: 'noindex,nofollow,noarchive'
+      });
+      return;
+    }
+
+    if (view === 'results') {
+      applySeo({
+        title: 'Scan Results | Vibesec',
+        description: 'Review findings, severity levels, and remediation guidance from your Vibesec security scan.',
+        robots: 'noindex,nofollow,noarchive'
+      });
+      return;
+    }
+
+    applySeo({
+      title: 'Account Settings | Vibesec',
+      description: 'Manage subscription, usage limits, and account settings for Vibesec.',
+      robots: 'noindex,nofollow,noarchive'
+    });
+  }, [authUser, isRecoveryMode, view]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);

@@ -127,6 +127,7 @@ export const AuthView = ({
   const showEmailField = !isRecoveryMode;
   const showPasswordField = !isForgotMode;
   const showConfirmPasswordField = isSignUpMode || isRecoveryMode;
+  const marketingTitle = 'AI Security Scanner for Vibe-Coded Apps';
 
   const primaryTitle = isRecoveryMode
     ? 'Reset your password'
@@ -160,12 +161,18 @@ export const AuthView = ({
         <section className="rounded-2xl border border-vibegreen-500/20 bg-gradient-to-b from-vibegreen-500/10 to-transparent p-6 md:p-8">
           <p className="inline-flex items-center gap-2 rounded-full border border-vibegreen-500/30 bg-vibegreen-500/10 px-3 py-1 font-mono text-xs text-vibegreen-400">
             <ShieldCheck size={14} />
-            Account required
+            AI Application Security Platform
           </p>
-          <h1 className="mt-5 text-3xl font-extrabold text-white md:text-4xl">{primaryTitle}</h1>
+          <h1 className="mt-5 text-3xl font-extrabold text-white md:text-4xl">{marketingTitle}</h1>
           <p className="mt-4 max-w-lg text-sm text-gray-300">
-            Sign in to run scans, review findings, and use AI remediation guidance in one session.
+            {primaryTitle}. Use Vibesec to run automated OWASP Top 10 scans, analyze exploit paths, and generate
+            practical remediation guidance.
           </p>
+          <ul className="mt-5 space-y-2 text-sm text-gray-300">
+            <li>Automated web app vulnerability scanning for modern JavaScript stacks.</li>
+            <li>Security findings prioritized by severity and exploitability.</li>
+            <li>AI-assisted code fix recommendations mapped to each finding.</li>
+          </ul>
           <div className="mt-6 rounded-xl border border-gray-800 bg-gray-900/60 p-4 text-xs text-gray-400">
             Authentication is handled by Supabase Auth.
           </div>
