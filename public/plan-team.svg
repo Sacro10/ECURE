@@ -1,0 +1,43 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#071531"/>
+      <stop offset="0.58" stop-color="#0A2F5D"/>
+      <stop offset="1" stop-color="#153C72"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="180" y1="768" x2="1488" y2="242" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#28DEB8"/>
+      <stop offset="1" stop-color="#84A8FF"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1252 180) rotate(138.8) scale(340 282)">
+      <stop stop-color="#8DAAFF" stop-opacity="0.66"/>
+      <stop offset="1" stop-color="#8DAAFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" rx="42" fill="url(#bg)"/>
+  <rect width="1600" height="900" rx="42" fill="url(#glow)"/>
+
+  <circle cx="248" cy="188" r="164" fill="#1EDFB8" fill-opacity="0.1"/>
+  <circle cx="1406" cy="716" r="272" fill="#86A8FF" fill-opacity="0.13"/>
+
+  <path d="M130 746C382 634 551 634 748 530C945 425 1134 186 1492 204" stroke="url(#accent)" stroke-opacity="0.72" stroke-width="7"/>
+
+  <text x="130" y="282" fill="#F7FBFF" font-family="Inter, Arial, sans-serif" font-size="132" font-weight="900">TEAM</text>
+  <text x="130" y="390" fill="#C8D8FF" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="500">$99/month</text>
+  <text x="130" y="462" fill="#9FB4E5" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="500">For high-volume shipping teams</text>
+
+  <g fill="#EAF2FF" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="600">
+    <text x="198" y="584">500 scans per month</text>
+    <text x="198" y="654">2,000 AI fixes included</text>
+    <text x="198" y="724">$0.02 per extra AI fix</text>
+    <text x="198" y="794">5 included team seats</text>
+  </g>
+
+  <g fill="#42E9C0">
+    <path d="M130 554l20 20 36-46" stroke="#42E9C0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M130 624l20 20 36-46" stroke="#42E9C0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M130 694l20 20 36-46" stroke="#42E9C0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M130 764l20 20 36-46" stroke="#42E9C0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
