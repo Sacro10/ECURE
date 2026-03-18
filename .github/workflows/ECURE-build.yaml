@@ -14,7 +14,7 @@ on:
         type: string
 
 env:
-  DEPLOYMENT_FOLDER: public
+  DEPLOYMENT_FOLDER: dist
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
@@ -32,14 +32,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: v22.x
+          cache: npm
 
       - name: Build Node assets
         env:
           CI: true
           SITE_URL: ${{ inputs.site-url }}
+          SEO_SITE_URL: ${{ inputs.site-url }}
         run: |
           npm ci
-          npm run dev
+          npm run seo:generate
+          npm run build
 
 # Please do not touch the following action
       - name: Store deployment content
