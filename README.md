@@ -41,6 +41,14 @@ Set these values in `.env`:
 - `VITE_SUPABASE_URL`
 - `VITE_SUPABASE_ANON_KEY`
 
+Do not put server secrets in `.env` (for example `GEMINI_API_KEY`, `STRIPE_*`, or `IONOS_*`).
+
+## Where each key goes
+
+- Local `.env` (client-only, this repo root): `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
+- Supabase Edge Function secrets: `GEMINI_API_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_PRICE_ID_PRO`, `STRIPE_PRICE_ID_TEAM`, `STRIPE_WEBHOOK_SECRET`, `ALLOWED_ORIGINS`, `CHECKOUT_REDIRECT_ORIGINS`
+- GitHub Actions secrets (IONOS deploy): `IONOS_API_KEY`, `IONOS_SSH_KEY`, and each deployment SSH username secret
+
 3. Configure Supabase Auth URL settings:
 
 - Open [Auth URL Configuration](https://supabase.com/dashboard/project/axehwgipxwqpilwlbtha/auth/url-configuration)
