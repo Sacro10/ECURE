@@ -14,6 +14,15 @@ interface AuthViewProps {
 
 type AuthMode = 'login' | 'signup' | 'forgot' | 'recovery';
 
+const SEO_RESOURCES = [
+  { href: '/seo/ai-security-scanner.html', label: 'AI Security Scanner' },
+  { href: '/seo/owasp-top-10-scanner.html', label: 'OWASP Top 10 Scanner' },
+  { href: '/seo/github-security-scanner.html', label: 'GitHub Security Scanner' },
+  { href: '/seo/web-application-security-scanner.html', label: 'Web App Security Scanner' },
+  { href: '/seo/devsecops-automated-security-testing.html', label: 'DevSecOps Security Testing' },
+  { href: '/seo/index.html', label: 'All Security Guides' }
+] as const;
+
 export const AuthView = ({
   onAuthenticated,
   globalError,
@@ -318,6 +327,24 @@ export const AuthView = ({
           )}
         </section>
       </div>
+
+      <section className="mt-8 w-full rounded-2xl border border-gray-800 bg-gray-900/40 p-5">
+        <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-300">Security Scanner Guides</h2>
+        <p className="mt-2 text-sm text-gray-400">
+          Explore practical application security topics and workflows used by engineering teams.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {SEO_RESOURCES.map((resource) => (
+            <a
+              key={resource.href}
+              href={resource.href}
+              className="rounded-full border border-vibegreen-500/30 bg-vibegreen-500/10 px-3 py-1 text-xs font-medium text-vibegreen-300 transition hover:border-vibegreen-400 hover:text-vibegreen-200"
+            >
+              {resource.label}
+            </a>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

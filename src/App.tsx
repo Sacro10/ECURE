@@ -38,6 +38,9 @@ const SiteFooter = () => {
     <footer className="relative z-30 border-t border-white/10 px-6 py-4 text-xs text-gray-400">
       <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-4">
+          <a href="/seo/index.html" target="_blank" rel="noreferrer" className="transition hover:text-vibegreen-500">
+            Security Guides
+          </a>
           <a href="/terms-and-conditions.html" target="_blank" rel="noreferrer" className="transition hover:text-vibegreen-500">
             Terms and Conditions
           </a>

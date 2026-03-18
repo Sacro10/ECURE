@@ -97,6 +97,21 @@ supabase functions deploy stripe-webhook --no-verify-jwt
 npm run dev
 ```
 
+## Programmatic SEO pages
+
+Generate keyword landing pages and refresh `public/sitemap.xml`:
+
+```bash
+npm run seo:generate
+```
+
+Generated pages are written to `public/seo/*.html`.
+By default URLs use `https://vibesec.app`. Override with:
+
+```bash
+SEO_SITE_URL=https://your-domain.com npm run seo:generate
+```
+
 ## Notes
 
 - Auth sessions are managed by Supabase Auth in the browser client.
