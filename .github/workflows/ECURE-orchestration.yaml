@@ -37,7 +37,7 @@ jobs:
     if: ${{ needs.retrieve-project.outputs.deployment-enabled == 'true' }}
     uses: ./.github/workflows/ECURE-build.yaml
     with:
-      site-url: https://IONOS_DEPLOY_NOW_SITE_URL
+      site-url: https://vibesec.info
       branch-id: ${{ needs.retrieve-project.outputs.branch-id }}
     secrets: inherit
 

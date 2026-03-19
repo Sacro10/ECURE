@@ -114,7 +114,7 @@ npm run seo:generate
 ```
 
 Generated pages are written to `public/seo/*.html`.
-By default URLs use `https://vibesec.app`. Override with:
+By default URLs use `https://vibesec.info`. Override with:
 
 ```bash
 SEO_SITE_URL=https://your-domain.com npm run seo:generate

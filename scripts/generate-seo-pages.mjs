@@ -2,7 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const SITE_URL = process.env.SEO_SITE_URL ?? 'https://vibesec.app';
+const SITE_URL = process.env.SEO_SITE_URL ?? 'https://vibesec.info';
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const __filename = fileURLToPath(import.meta.url);
