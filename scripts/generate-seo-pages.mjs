@@ -10,6 +10,7 @@ const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const SEO_DIR = path.join(PROJECT_ROOT, 'public', 'seo');
 const SITEMAP_PATH = path.join(PROJECT_ROOT, 'public', 'sitemap.xml');
+const SITEMAP_V2_PATH = path.join(PROJECT_ROOT, 'public', 'sitemap-v2.xml');
 
 const pages = [
   {
@@ -549,9 +550,11 @@ const run = async () => {
   );
 
   await writeFile(path.join(SEO_DIR, 'index.html'), renderHubPage(), 'utf8');
-  await writeFile(SITEMAP_PATH, buildSitemap(), 'utf8');
+  const sitemapXml = buildSitemap();
+  await writeFile(SITEMAP_PATH, sitemapXml, 'utf8');
+  await writeFile(SITEMAP_V2_PATH, sitemapXml, 'utf8');
 
-  console.log(`Generated ${pages.length} SEO pages, seo index, and sitemap.xml`);
+  console.log(`Generated ${pages.length} SEO pages, seo index, sitemap.xml, and sitemap-v2.xml`);
 };
 
 run().catch((error) => {
