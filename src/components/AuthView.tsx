@@ -165,7 +165,7 @@ export const AuthView = ({
           : 'Create Account';
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-6xl items-center px-6 py-10">
+    <div className="mx-auto flex min-h-full max-w-6xl flex-col items-center px-6 py-10">
       <div className="grid w-full gap-8 rounded-3xl border border-gray-800 bg-gray-950/50 p-6 backdrop-blur-md md:grid-cols-[1.1fr,1fr] md:p-10">
         <section className="rounded-2xl border border-vibegreen-500/20 bg-gradient-to-b from-vibegreen-500/10 to-transparent p-6 md:p-8">
           <p className="inline-flex items-center gap-2 rounded-full border border-vibegreen-500/30 bg-vibegreen-500/10 px-3 py-1 font-mono text-xs text-vibegreen-400">
